@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  dataUrl: 'https://stock-tracker-km.herokuapp.com/api'
+  dataUrl: 'https://stock-tracker-km.herokuapp.com/api/'
 };

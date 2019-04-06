@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  dataUrl: 'https://stock-tracker-km.herokuapp.com/api'
+  dataUrl: 'https://stock-tracker-km.herokuapp.com/api/'
 };
