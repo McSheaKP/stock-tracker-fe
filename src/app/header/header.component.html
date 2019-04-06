@@ -1,0 +1,13 @@
+<header class="header-6">
+    <div class="branding">
+        <a href="..." routerLink="" class="nav-link">
+            <span class="title">Home</span>
+        </a>
+    </div>
+    <div class="header-nav">
+        <a *ngIf="!_aus.loggedIn" routerLink="register" class="active nav-link"><span class="nav-text">Register</span></a>
+        <a *ngIf="!_aus.loggedIn" routerLink="login" class="active nav-link"><span class="nav-text">Login</span></a>
+        <a *ngIf="_aus.loggedIn"  routerLink="logged" class="active nav-link"><span class="nav-text"> Saved Stocks </span></a>
+    </div>
+</header>
+

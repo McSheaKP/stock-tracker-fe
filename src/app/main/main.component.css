@@ -1,0 +1,16 @@
+.welcome{
+    padding-left: 40px;
+}
+.sidenav {
+    min-height: 200vh;
+}
+.addstock{
+    padding: 10px;
+    padding-left: 30px;
+}
+.instructions{
+    padding-left: 10px;
+}
+.dataDescription{
+    padding-left: 30px;
+}

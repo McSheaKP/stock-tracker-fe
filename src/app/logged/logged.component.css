@@ -1,0 +1,23 @@
+.welcome{
+    padding-left: 40px;
+    padding-bottom: 20px;
+}
+.sidenav {
+    min-height: 200vh;
+}
+.addstock{
+    padding: 10px;
+    padding-left: 30px;
+}
+.btn-group btn-primary{
+    padding: 10px;
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.dataDescription{
+    padding-left: 30px;
+}

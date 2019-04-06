@@ -1,0 +1,57 @@
+<div class="main-container">
+    <div class="row">
+        <div class="col col-xs-2 col-md-2 col-lg-2 col-xl-2"> 
+            <nav class="sidenav">
+                <section class="sidenav-content">
+                    
+                
+                    <div class = "addstock">
+                        <button (click)="lookUpStocks(stockLookup.ticker)" class="btn btn-primary">Lookup Stock</button>
+                        <input type="text" id="formFields_1" placeholder="Stock Ticker E.G. MSFT" size="35" [(ngModel)]= "stockLookup.ticker">
+                    </div> 
+                </section>
+            </nav>
+        
+        
+        </div>
+        <div *ngIf="chartSwitch; else spinner" class="col col-xs-4 col-md-6 col-lg-6 col-xl-6">
+            <div class="row">
+                <div class="col col-xs-12 col-md-12 col-lg-12 col-xl-12">
+                    <h1 class = "instructions">
+                        Now viewing stock: {{title}}
+                    </h1>
+                    <h2 class = "instructions">
+                        Lookup a stock or register to save favorite stocks.
+                    </h2> 
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col col-xs-10 col-md-10 col-lg-10 col-xl-10">
+                    <div style="display: block;">
+    
+                                <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                    
+                    </div>
+            </div>  
+            <div class="row">
+                <div class="col col-xs-10 col-md-10 col-lg-10 col-xl-10">
+                    <h3 class="dataDescription">Data from the last 10 days of trading</h3>
+                    <span><table class="table table-responsive table-condensed">
+                                  <tr>
+                                   <th *ngFor="let label of lineChartLabels | slice:0:10; let i=index">{{label}}</th>
+                                  </tr>
+                                  <tr *ngFor="let d of lineChartData | slice:0:10; let i=index">
+                                    <td *ngFor="let label of lineChartLabels | slice:0:10; let i=index; let j=index">{{d && d.data[j]}}</td>
+                                  </tr>
+                    </table></span>
+                
+                
+                </div>
+            </div>
+        </div>
+        <ng-template #spinner>
+            <app-spinner style="position: fixed; top: 50%; left: 50%;"></app-spinner>
+        </ng-template>
+    </div>
+</div>
