@@ -10,7 +10,7 @@ export class AppUserService {
   constructor(private http: HttpClient) { }
   
   url:string = environment.dataUrl;
-  appUsersUrl: string = "/appUsers/";
+  appUsersUrl: string = "appUsers/";
   loggedIn: boolean = false; 
   user: any = {
       firstName: "TesterUserName",
@@ -20,11 +20,11 @@ export class AppUserService {
   }
   
    register(user){
-    return this.http.post(this.url+"/appUsers", user);
+    return this.http.post(this.url + this.appUsersUrl, user);
    }
    
    login(user){
-    return this.http.post(this.url+"/appUsers/login", user);
+    return this.http.post(this.url + this.appUsersUrl", user);
    }
    
    logged(){

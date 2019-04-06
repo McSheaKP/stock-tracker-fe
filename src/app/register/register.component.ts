@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   doRegister(){
     this._aus.register(this.user)  
        .subscribe( (res: any) => {
-             console.log(res)
+            
              sessionStorage.setItem('token', res.token);
              sessionStorage.setItem('userId', res.userId);
              let token = sessionStorage.getItem('token');

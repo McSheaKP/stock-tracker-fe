@@ -80,11 +80,11 @@ export class MainComponent implements OnInit {
  
   // events
   public chartClicked(e:any):void {
-    console.log(e);
+ 
   }
  
   public chartHovered(e:any):void {
-    console.log(e);
+
   }
   
   
@@ -92,7 +92,7 @@ export class MainComponent implements OnInit {
     this.chartSwitch = false;
     this._sfs.getData(ticker)
       .subscribe( data => {
-          console.log('data coming in',data)
+     
           this.lineChartData = data.stockData;
           this.lineChartLabels = data.dateData;
           this.title = ticker;
@@ -101,8 +101,7 @@ export class MainComponent implements OnInit {
       }, err => {
         //when the data does not come back do this
       })  
-    //console.log("Stock Data works in component", this.stockData);
-    //this.lineChartData = this.stockData;
+  
     }
   
 
@@ -112,7 +111,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this._sfs.getData(this.userStock)
     .subscribe(data => {
-        console.log("data is displayed onit", data)
+        
     })
     
     
