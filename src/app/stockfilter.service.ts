@@ -52,7 +52,6 @@ constructor(private http: HttpClient) { }
                     lowStock.push(Number((data[key]["3. low"]).slice(0,5)));
                     closeStock.push(Number((data[key]["4. close"]).slice(0,5)));
                     dailyVolume.push(Number((data[key]["5. volume"])));
-                    console.log(data, "this is the data from stockfilter");
                     stockData.dateData = Object.keys(data);
                 }
                 

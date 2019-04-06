@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  dataUrl: 'http://localhost:5000'
+  dataUrl: 'https://stock-tracker-km.herokuapp.com/api'
 };

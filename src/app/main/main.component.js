@@ -13,11 +13,11 @@ var MainComponent = /** @class */ (function () {
     }
     MainComponent.prototype.getStocks = function () {
         var _this = this;
-        console.log("[This getStocks]");
+    
         this._sfs.getData().subscribe(function (data) {
-            console.log('Data:', data);
+           
             _this.stockData = data;
-            console.log('Set stock data:', _this.stockData);
+
         });
     };
     MainComponent.prototype.ngOnInit = function () {

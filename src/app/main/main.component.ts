@@ -92,6 +92,7 @@ export class MainComponent implements OnInit {
     this.chartSwitch = false;
     this._sfs.getData(ticker)
       .subscribe( data => {
+          console.log('data coming in',data)
           this.lineChartData = data.stockData;
           this.lineChartLabels = data.dateData;
           this.title = ticker;

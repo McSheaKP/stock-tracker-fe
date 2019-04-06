@@ -19,6 +19,7 @@ export class LoggedComponent implements OnInit {
   }
   
   chartSwitch: boolean = true;
+  loggedSwitch = false;
   
   stockLookup: any = {
     ticker: "",
@@ -87,11 +88,11 @@ export class LoggedComponent implements OnInit {
  
   // events
   public chartClicked(e:any):void {
-    console.log(e);
+  
   }
  
   public chartHovered(e:any):void {
-    console.log(e);
+   
   }
   
   
@@ -108,12 +109,12 @@ export class LoggedComponent implements OnInit {
   }
   
   onDelete(stock){
-    console.log("on delete method stockId", stock.id);
+    
     this._aus.deleteUserStock(stock.id)
       .subscribe( ( res: any ) => {
-        console.log(res);      
+ 
         this.savedStocks = this.savedStocks.filter(arr => arr.id !== stock.id);
-        console.log("this is the on delete saved stocks", this.savedStocks)
+        
       })
   }
   
@@ -122,9 +123,9 @@ export class LoggedComponent implements OnInit {
     this._sfs.getData(ticker)
       .subscribe( data => {
           this.lineChartData = data.stockData;
-          console.log("line date data", data.dateData);
+        
           this.lineChartLabels = data.dateData;
-          console.log("line chart data", this.lineChartLabels);
+          
           this.title = ticker;
           this.stock.ticker = "";
           this.chartSwitch = true;
@@ -142,9 +143,9 @@ export class LoggedComponent implements OnInit {
     this._sfs.getData(ticker)
       .subscribe( data => {
           this.lineChartData = data.stockData;
-          console.log("line date data", data.dateData);
+          
           this.lineChartLabels = data.dateData;
-          console.log("line chart data", this.lineChartLabels);
+        
           this.title = ticker;
           this.stockLookup.ticker = "";
           this.chartSwitch = true;
@@ -162,6 +163,7 @@ export class LoggedComponent implements OnInit {
     sessionStorage.removeItem('userId');
     this._aus.logOutToggle();
     this._router.navigate(['']);
+    this.loggedSwitch = false;
   }
   
   
@@ -170,14 +172,13 @@ export class LoggedComponent implements OnInit {
     //Upon initialization we want to pull user data and push data into the dom
       this._aus.logged()  
         .subscribe( (res: any) => {
-             console.log('showing the get call from  aus',res);
+            
              this.userData = res;
+             this.loggedSwitch = true;
       })       
       this._aus.getUserStocks()
       .subscribe( (res: any) => {
-             console.log("these are the stocks for userID", res)
             this.savedStocks = res;
-            console.log("stocks are saved",this.savedStocks)
       })       
              
               

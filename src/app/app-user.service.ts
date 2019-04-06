@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { filter, map, reduce, pluck } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class AppUserService {
 
   constructor(private http: HttpClient) { }
   
-  url:string = "http://localhost:3000/api";
+  url:string = environment.dataUrl;
   appUsersUrl: string = "/appUsers/";
   loggedIn: boolean = false; 
   user: any = {

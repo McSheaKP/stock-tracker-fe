@@ -3,7 +3,9 @@
         <div class="col col-xs-2 col-md-2 col-lg-2 col-xl-2"> 
             <nav class="sidenav">
                     <section class="sidenav-content">
+                        <div *ngIf='loggedSwitch'>
                         <h3 class="welcome"> {{"Welcome " + userData.firstName}} </h3>
+                        </div>
                         <a (click)="logOut()" class="nav-link active">LogOut</a>
                         <div class="addstock">
                             <button (click)="addStock()" class="btn btn-primary">Add Stock</button>
