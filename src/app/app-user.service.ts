@@ -24,12 +24,12 @@ export class AppUserService {
    }
    
    login(user){
-    return this.http.post(this.url + this.appUsersUrl", user);
+    return this.http.post(this.url + this.appUsersUrl, user);
    }
    
    logged(){
     let userId = sessionStorage.getItem("userId");
-    return this.http.get(this.url+this.appUsersUrl + userId);
+    return this.http.get(this.url + this.appUsersUrl + userId);
    }
 
    
