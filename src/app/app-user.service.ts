@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { filter, map, reduce, pluck } from 'rxjs/operators';
 import { environment } from '../environments/environment';
@@ -18,13 +18,21 @@ export class AppUserService {
       email: "test1234@gmail.com",
       password: "1234"
   }
+    setHeaders(){
+        const options = {
+            headers: new HttpHeaders().set('authorization', localStorage.getItem('token'))
+        };
+        return options;
+    }
   
    register(user){
-    return this.http.post(this.url + this.appUsersUrl, user);
+    const httpOptions = this.setHeaders;
+    return this.http.post(this.url + this.appUsersUrl,  user );
    }
    
    login(user){
-    return this.http.post(this.url + this.appUsersUrl, user);
+    const httpOptions = this.setHeaders;
+    return this.http.post(this.url + this.appUsersUrl + 'login', user );
    }
    
    logged(){

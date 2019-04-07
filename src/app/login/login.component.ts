@@ -14,11 +14,11 @@ export class LoginComponent implements OnInit {
   constructor(private _aus: AppUserService, private router: Router ){}
 
   user: any = {
+    firstName: "",
+    lastName: "",
     email: "",
     password: ""
   }
-  
-  
   
   doLogin(){
     this._aus.login(this.user)  
